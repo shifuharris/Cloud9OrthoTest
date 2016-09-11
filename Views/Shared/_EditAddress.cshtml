@@ -1,0 +1,55 @@
+﻿@model Cloud9OrthoTest.Models.Person
+
+
+<div class="form-horizontal">
+    <hr />
+    <h4>Addresses</h4>
+    <p>
+        <button name="btnAdd" type="button" class="btn btn-default" value="Create" onclick="insertNewAddress();">Add</button>
+    </p>
+
+    <table id="addressTable" class="table" data-modelID=@Model.ID>
+        @foreach (var item in Model.Addresses)
+        {
+            <tr>
+                <td>
+                    @Html.LabelFor(model => item.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => item.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => item.Address, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.LabelFor(model => item.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => item.City, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => item.City, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.LabelFor(model => item.State, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => item.State, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => item.State, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.LabelFor(model => item.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => item.Zip, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => item.Zip, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    <button name="btnSaveAddress" type="button" class="btn btn-default" value="Save" onclick="updateAddress('@item.ID', this);">Update</button>
+                </td>
+                <td>
+                    <button name="btnDelete" type="button" class="btn btn-default" value="Delete" onclick="confirmDelete(); location.href='@Url.Action("DeleteAddress", "People", new { id = item.ID })'">Delete</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

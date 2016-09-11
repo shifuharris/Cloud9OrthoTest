@@ -1,0 +1,47 @@
+﻿@model Cloud9OrthoTest.Models.Person
+
+<div class="form-horizontal">
+    <h4>Addresses</h4>
+    <hr />
+
+    <table class="table">
+        @foreach (var item in Model.Addresses)
+        {
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => item.Address)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => item.Address)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => item.City)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => item.City)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => item.State)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => item.State)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => item.Zip)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => item.Zip)
+                    </dd>
+
+                </dl>
+        }
+    </table>
+
+</div>
